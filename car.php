@@ -82,11 +82,16 @@ foreach ($cars as $car) {
                 $new_price = $car->getPrice();
                 $miles = $car->getMiles();
                 $make_model = $car->getMake_Model();
-                echo "<li> $car->make_model </li>";
-                echo "<ul>";
-                    echo "<li> $$car->price</li>";
-                    echo "<li> Miles: $car->miles </li>";
-                echo "</ul>";
+                  echo "<li> $make_model </li>";
+                  echo "<ul>";
+                        echo"<li> $new_price </li>";
+                        echo "<li> $miles </li>";
+                  echo "</ul>";
+                // echo "<li> $car->make_model </li>";
+                // echo "<ul>";
+                //     echo "<li> $$car->price</li>";
+                //     echo "<li> Miles: $car->miles </li>";
+                // echo "</ul>";
             }
         ?>
     </ul>
