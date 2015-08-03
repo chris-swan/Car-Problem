@@ -5,10 +5,10 @@ class Car
     private $price;
     private $miles;
     private $picture;
-
-    function worthBuying($max_price)
+    
+    function worthBuying($max_price, $max_miles)
     {
-      return $this->price < ($max_price + 100);
+      return $this->price < $max_price && $this->miles < $max_miles;
     }
 
     function __construct($make_model, $price, $miles, $picture)
@@ -74,7 +74,7 @@ $cars = array($first_car, $second_car, $third_car, $fourth_car);
 $cars_matching_search = array();
 
 foreach ($cars as $car) {
-    if ($car->worthBuying($_GET["price"])) {
+    if ($car->worthBuying($_GET["price"], $_GET["miles"])) {
         array_push($cars_matching_search, $car);
     }
 }
@@ -95,13 +95,16 @@ foreach ($cars as $car) {
                 $make_model = $car->getMake_Model();
                 $picture = $car->getPicture();
                   echo "<li> $make_model </li>";
-                  echo "<li> <img src='$picture'> </li>";
+                  echo "<li> <img src='$picture'>1500 </li>";
                   echo "<ul>";
                         echo"<li> $new_price </li>";
                         echo "<li> $miles </li>";
                   echo "</ul>";
 
             }
+
+            if (empty ($cars_matching_serach))
+              echo "We have no cars for you!";
         ?>
     </ul>
 </body>
