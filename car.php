@@ -5,7 +5,7 @@ class Car
     private $price;
     private $miles;
     private $picture;
-    
+
     function worthBuying($max_price, $max_miles)
     {
       return $this->price < $max_price && $this->miles < $max_miles;
